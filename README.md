@@ -2,7 +2,7 @@ Oom
 ===
 
 + __Last update:__  2017/09/10
-+ __Version:__      0.0.1
++ __Version:__      0.0.2
 
 #### Interactive 3D sound-sculptures
 
@@ -11,7 +11,8 @@ Author
 ------
 Created by Rich Plastow and Loop.Coop.
 
-+ __GitHub:__       [loopdotcoop/oom](https://github.com/loopdotcoop/oom)
++ __Website:__      [loop.coop](http://loop.coop/)
++ __GitHub:__       [loopdotcoop](https://github.com/loopdotcoop)
 + __Twitter:__      [@loopdotcoop](https://twitter.com/loopdotcoop)
 + __Location:__     Brighton, UK
 
@@ -44,3 +45,4 @@ Changelog
 ---------
 + Initial commit
 + 0.0.1    Initial holding page
++ 0.0.2    Minor amends to index.html
