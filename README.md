@@ -2,7 +2,7 @@ Oom
 ===
 
 + __Last update:__  2017/09/10
-+ __Version:__      0.0.2
++ __Version:__      0.0.3
 
 #### Interactive 3D sound-sculptures
 
@@ -46,3 +46,4 @@ Changelog
 + Initial commit
 + 0.0.1    Initial holding page
 + 0.0.2    Minor amends to index.html
++ 0.0.3    With Podkova font
