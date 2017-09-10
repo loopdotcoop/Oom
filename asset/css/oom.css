@@ -1,0 +1,48 @@
+/* oom.css 0.0.1 */
+
+
+
+
+/* BASICS */
+
+html {
+    font-size: 1.315rem;
+}
+body {
+    background: #000;
+    color: #ddd;
+    font-family: arial, sans-serif;
+}
+
+
+
+
+/* BLOCK */
+
+h1, .h1, h2, h3, h4 {
+    font-family: 'Podkova', arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+/* INLINE */
+
+a {
+    outline: none!important;
+    color:   #38A8FF!important;
+    cursor:  pointer;
+    text-decoration: none!important;
+    transition: color 0.5s;
+}
+a:hover {
+    color: #6BEDFF!important;
+    text-decoration: underline!important;
+}
+
+
+
+
+/* END */
