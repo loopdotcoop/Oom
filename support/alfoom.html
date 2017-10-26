@@ -51,8 +51,6 @@
 <script>!function () {
 if (! window.applicationCache) return;
 
-var log = ['adadsads', 'adsadasdasd']
-
 function logEvent(event) {
   log.push(event.type);
   var $log = document.querySelector('#log')
@@ -65,7 +63,6 @@ window.setInterval( function () {
   if ($log) $log.innerHTML = log.join('\n')
 }, 500);
 
-window.addEventListener('load',logEvent,false);
 window.applicationCache.addEventListener('checking',logEvent,false);
 window.applicationCache.addEventListener('noupdate',logEvent,false);
 window.applicationCache.addEventListener('downloading',logEvent,false);
