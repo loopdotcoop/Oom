@@ -14,9 +14,10 @@
 <title>Alfoom</title>
 <meta name="description"
       content="Technical proof of concept for http://oom.loop.coop">
-<link rel="author" href="../README.md">
+<!-- <link rel="author" href="../README.md"> -->
 
 <!-- Twitter Card, and Open Graph for Facebook, LinkedIn, Google+, etc -->
+<!--
 <meta name="twitter:card"    content="summary">
 <meta name="twitter:site"    content="@loopdotcoop">
 <meta name="twitter:creator" content="@loopdotcoop">
@@ -31,8 +32,10 @@
       content="Alfoom">
 <meta property="og:description"
       content="Technical proof of concept for http://oom.loop.coop">
+-->
 
 <!-- From realfavicongenerator.net - see README.md for settings -->
+<!--
 <link rel="apple-touch-icon" sizes="180x180" href="../asset/icon/apple-touch.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../asset/icon/favicon32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../asset/icon/favicon16.png">
@@ -43,10 +46,36 @@
 <meta name="application-name"           content="Alfoom">
 <meta name="msapplication-config"       content="../asset/icon/browserconfig.xml">
 <meta name="theme-color"                content="#000000">
+-->
 
-<!-- Fonts and styles -->
-<link href="https://fonts.googleapis.com/css?family=Podkova" rel="stylesheet">
-<link rel="stylesheet" href="../asset/css/oom.css">
+<script>!function () {
+if (! window.applicationCache) return;
+
+var log = ['adadsads', 'adsadasdasd']
+
+function logEvent(event) {
+  log.push(event.type);
+  var $log = document.querySelector('#log')
+  if ($log) $log.innerHTML = log.join('\n')
+  console.log(event.type);
+}
+
+window.setInterval( function () {
+  var $log = document.querySelector('#log')
+  if ($log) $log.innerHTML = log.join('\n')
+}, 500);
+
+window.addEventListener('load',logEvent,false);
+window.applicationCache.addEventListener('checking',logEvent,false);
+window.applicationCache.addEventListener('noupdate',logEvent,false);
+window.applicationCache.addEventListener('downloading',logEvent,false);
+window.applicationCache.addEventListener('cached',logEvent,false);
+window.applicationCache.addEventListener('updateready',logEvent,false);
+window.applicationCache.addEventListener('obsolete',logEvent,false);
+window.applicationCache.addEventListener('error',logEvent,false);
+
+}()</script>
+<html manifest="../alfoom.manifest">
 
 <style>
 html {
@@ -55,11 +84,26 @@ html {
   height: 200%!important;
   bottom: auto!important;
   background: #000;
+  font-size: 1.315rem;
   font-family: Arial, sans-serif;
   color: #bbb;
 }
 body {
   overflow-y: scroll!important;
+}
+body.hitzone canvas {
+  cursor: pointer!important;
+}
+a {
+  outline: none!important;
+  color:   #eee!important;
+  cursor:  pointer;
+  text-decoration: none!important;
+  transition: color 0.5s;
+}
+a:hover {
+  color: #6BEDFF!important;
+  text-decoration: underline!important;
 }
 a-scene {
   position: fixed!important;
@@ -78,9 +122,12 @@ a-scene {
 AFRAME.registerComponent('ui-event', {
     init: function () {
         var el = this.el // <a-entity>
+        var $body = document.querySelector('body')
         var listener = function (evt) {
             evt.preventDefault()
             evt.stopPropagation()
+            if ('mouseenter' === evt.type) $body.classList.add('hitzone')
+            else if ('mouseleave' === evt.type) $body.classList.remove('hitzone')
             window.dispatchEvent(
                 new CustomEvent('ui-event', { detail: { el:el, type:evt.type } })
             )
@@ -94,11 +141,12 @@ AFRAME.registerComponent('ui-event', {
 </script>
 
 </head>
-<body>
+<body class="hitzone">
 
 <header style="position:fixed; top:5px; left:10px; right:10px; z-index:99">
   <a href="http://loop.coop/">Loop.Coop</a>
   <a href="https://github.com/loopdotcoop/oom" style="float:right">Alfoom</a>
+  <pre id="log"></pre>
 </header>
 
 <footer style="position:fixed; bottom:5px; left:10px; z-index:99">
@@ -107,7 +155,7 @@ AFRAME.registerComponent('ui-event', {
 
 
 <!-- Begin the A-Frame Scene -->
-<a-scene cursor="rayOrigin: mouse">
+<a-scene inspector cursor="rayOrigin: mouse">
 
   <a-sky color="#181818"></a-sky>
   <a-camera position="0 0 4">
@@ -126,6 +174,8 @@ AFRAME.registerComponent('ui-event', {
   <a-box  id="lwall2" position="-10 -5 -3"   scale="20.3 10 0.2" rotation="0  10 0" color="#000856"></a-box>
   <a-box  id="rwall2" position=" 10 -5 -3"   scale="20.3 10 0.2" rotation="0 -10 0" color="#000856"></a-box>
 
+  <!-- <a-dodecahedron id="button0" position="-5.142 5.516 -3.731" rotation="0 10 0" color="#891234"></a-dodecahedron> -->
+
   <a-entity id="seq0" position="0 3.25 0"></a-entity>
   <a-entity id="seq1" position="0 2 0"></a-entity>
   <a-entity id="seq2" position="0 1 0"></a-entity>
@@ -137,9 +187,9 @@ AFRAME.registerComponent('ui-event', {
 <script>!function () {
 
 //// Load the sounds
-createjs.Sound.registerSound("mp3/sound0.mp3", 'sound0')
-createjs.Sound.registerSound("mp3/sound1.mp3", 'sound1')
-createjs.Sound.registerSound("mp3/sound2.mp3", 'sound2')
+createjs.Sound.registerSound('mp3/sound0.mp3', 'sound0')
+createjs.Sound.registerSound('mp3/sound1.mp3', 'sound1')
+createjs.Sound.registerSound('mp3/sound2.mp3', 'sound2')
 
 //// Element refs.
 const $seq0 = document.querySelector('#seq0')

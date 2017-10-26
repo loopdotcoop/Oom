@@ -2,7 +2,7 @@ Oom
 ===
 
 + __Last update:__  2017/10/21
-+ __Version:__      0.0.4
++ __Version:__      0.0.5
 
 #### Interactive 3D sound-sculptures
 
@@ -50,3 +50,4 @@ Changelog
 + 0.0.2    Minor amends to index.html
 + 0.0.3    With Podkova font
 + 0.0.4    Initial Alfoom experiment
++ 0.0.5    Begin setting up cache manifest
